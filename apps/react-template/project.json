@@ -1,0 +1,73 @@
+{
+  "root": "apps/react-template",
+  "sourceRoot": "apps/react-template/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/react-template",
+        "index": "apps/react-template/src/index.html",
+        "baseHref": "/",
+        "main": "apps/react-template/src/main.tsx",
+        "polyfills": "apps/react-template/src/polyfills.ts",
+        "tsConfig": "apps/react-template/tsconfig.app.json",
+        "assets": [
+          "apps/react-template/src/favicon.ico",
+          "apps/react-template/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/react-template/src/environments/environment.ts",
+              "with": "apps/react-template/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "react-template:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "react-template:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-template/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/react-template"],
+      "options": {
+        "jestConfig": "apps/react-template/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
