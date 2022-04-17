@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "package-template": "packages/package-template"
+  }
+}
