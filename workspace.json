@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "nextjs-template": "apps/nextjs-template",
+    "nextjs-template-e2e": "apps/nextjs-template-e2e"
+  }
+}
